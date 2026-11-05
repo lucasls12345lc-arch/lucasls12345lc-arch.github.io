@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lucas Ruens — Filmmaker</title>
+<meta name="description" content="Lucas Ruens — captação e edição de vídeo para marcas, campanhas, eventos e redes sociais. Niterói / RJ.">
+<meta property="og:title" content="Lucas Ruens — Filmmaker">
+<meta property="og:description" content="Captação e edição de vídeo para marcas, campanhas, eventos e redes sociais.">
+<meta property="og:image" content="assets/img/pran-pedido.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0a; --bg2:#121212; --card:#171717; --line:#2a2a2a;
+  --fg:#f4f1ea; --muted:#9a968e; --accent:#ff4d1a; --accent2:#ffd23f;
+  --display:'Anton',Impact,sans-serif; --body:'Manrope',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+  --pad:clamp(16px,4vw,56px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img,video{display:block;max-width:100%}
+::selection{background:var(--accent);color:#000}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.06;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px var(--pad);transition:background .3s,padding .3s}
+nav.scrolled{background:rgba(10,10,10,.82);backdrop-filter:blur(14px);padding:12px var(--pad);border-bottom:1px solid var(--line)}
+.logo{font-family:var(--display);font-size:22px;letter-spacing:.04em;display:flex;align-items:center;gap:10px}
+.logo i{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 var(--accent);animation:rec 1.6s infinite}
+@keyframes rec{0%{box-shadow:0 0 0 0 rgba(255,77,26,.7)}70%{box-shadow:0 0 0 10px rgba(255,77,26,0)}100%{box-shadow:0 0 0 0 rgba(255,77,26,0)}}
+.links{display:flex;gap:30px;font-size:14px;font-weight:600}
+.links a{opacity:.75;transition:opacity .2s}.links a:hover{opacity:1}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:700;font-size:14px;transition:transform .2s,background .2s,color .2s;cursor:pointer;border:0;font-family:inherit}
+.btn-accent{background:var(--accent);color:#0a0a0a}.btn-accent:hover{transform:translateY(-2px);background:var(--accent2)}
+.btn-ghost{border:1.5px solid rgba(244,241,234,.35);color:var(--fg)}.btn-ghost:hover{border-color:var(--fg);transform:translateY(-2px)}
+nav .btn{padding:10px 18px}
+.burger{display:none;background:none;border:0;color:var(--fg);font-size:26px;cursor:pointer}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px var(--pad) 48px;overflow:hidden}
+.wall{position:absolute;inset:-6%;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;transform:rotate(-6deg) scale(1.12);opacity:.7}
+.wall .col{display:flex;flex-direction:column;gap:10px;animation:up 40s linear infinite}
+.wall .col:nth-child(even){animation-direction:reverse;animation-duration:48s}
+.wall video,.wall img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:10px;background:#1a1a1a}
+@keyframes up{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:
+  radial-gradient(ellipse at 30% 80%,rgba(10,10,10,.55),rgba(10,10,10,.92) 70%),linear-gradient(180deg,rgba(10,10,10,.6),rgba(10,10,10,.1) 30%,var(--bg) 96%)}
+.hero-in{position:relative;z-index:2}
+.tag{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:10px;margin-bottom:22px}
+.tag::before{content:"";width:28px;height:1.5px;background:currentColor}
+h1{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.86;font-size:clamp(64px,15.5vw,240px);letter-spacing:-.01em}
+h1 .out{color:transparent;-webkit-text-stroke:2px var(--fg)}
+h1 .acc{color:var(--accent)}
+.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-top:34px;flex-wrap:wrap}
+.hero-bottom p{max-width:520px;font-size:clamp(16px,1.6vw,20px);color:#d8d4cb}
+.hero-bottom p b{color:var(--fg)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.scroll-hint{position:absolute;right:var(--pad);top:50%;z-index:2;writing-mode:vertical-rl;font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--muted)}
+
+/* MARQUEE */
+.marquee{border-block:1px solid var(--line);background:var(--accent);color:#0a0a0a;overflow:hidden;white-space:nowrap;padding:16px 0}
+.marquee .track{display:inline-flex;gap:48px;animation:slide 26s linear infinite;font-family:var(--display);font-size:clamp(26px,3.4vw,44px);text-transform:uppercase}
+.marquee span{display:inline-flex;align-items:center;gap:48px}
+.marquee span::after{content:"✦";font-size:.6em}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{padding:clamp(80px,11vw,150px) var(--pad)}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:48px}
+h2{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(48px,8vw,120px);line-height:.9}
+h2 em{font-style:normal;color:var(--accent)}
+.lead{max-width:440px;color:var(--muted);font-size:17px}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.stat{padding:40px var(--pad);border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:var(--display);font-size:clamp(44px,5vw,72px);font-weight:400;line-height:1}
+.stat b sup{color:var(--accent);font-size:.45em;vertical-align:top}
+.stat span{font-size:13px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+
+/* WORK */
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{background:transparent;color:var(--fg);border:1.5px solid var(--line);padding:9px 18px;border-radius:999px;font:600 13px var(--body);cursor:pointer;transition:.2s}
+.filters button:hover{border-color:var(--fg)}
+.filters button.on{background:var(--fg);color:#0a0a0a;border-color:var(--fg)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;grid-auto-flow:dense}
+.card{position:relative;border-radius:16px;overflow:hidden;background:var(--card);cursor:pointer;isolation:isolate;transition:transform .4s cubic-bezier(.2,.8,.2,1),opacity .4s}
+.card.h{grid-column:span 6;aspect-ratio:16/10}
+.card.v{grid-column:span 4;aspect-ratio:9/14}
+.card.wide{grid-column:span 12;aspect-ratio:21/9}
+.card.big{grid-column:span 6;grid-row:span 2;aspect-ratio:auto}
+.card.hide{display:none}
+.card img,.card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .4s}
+.card video{opacity:0}
+.card:hover video{opacity:1}
+.card:hover img,.card:hover video{transform:scale(1.05)}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.92) 88%);z-index:1}
+.meta{position:absolute;left:0;right:0;bottom:0;padding:20px;z-index:2}
+.meta small{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2)}
+.meta h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(22px,2.2vw,34px);line-height:1;margin-top:6px}
+.card.big .meta h3{font-size:clamp(30px,4vw,60px)}
+.meta p{font-size:13px;color:#cfcac0;margin-top:6px}
+.badge{position:absolute;top:14px;left:14px;z-index:2;font-family:var(--mono);font-size:11px;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);padding:5px 10px;border-radius:999px}
+.play{position:absolute;top:14px;right:14px;z-index:2;width:46px;height:46px;border-radius:50%;background:var(--accent);display:grid;place-items:center;transform:scale(.7);opacity:0;transition:.3s}
+.card:hover .play{transform:scale(1);opacity:1}
+.play svg{width:16px;margin-left:3px}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,90px);align-items:center;background:var(--bg2)}
+.photo{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5}
+.photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(.2) contrast(1.05)}
+.photo .stamp{position:absolute;right:-1px;bottom:-1px;background:var(--accent);color:#0a0a0a;font-family:var(--display);font-size:22px;padding:14px 20px;border-top-left-radius:18px;text-transform:uppercase}
+.about h2{margin-bottom:28px}
+.about p{color:#cfcac0;font-size:18px;margin-bottom:18px;max-width:640px}
+.about p strong{color:var(--fg)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.chips span{border:1px solid var(--line);padding:8px 14px;border-radius:999px;font-size:13px;font-weight:600;color:#d8d4cb}
+
+/* SERVICES */
+.services{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.svc{position:relative;border:1px solid var(--line);border-radius:20px;padding:clamp(28px,4vw,48px);overflow:hidden;transition:border-color .3s}
+.svc:hover{border-color:var(--accent)}
+.svc .n{font-family:var(--mono);color:var(--accent);font-size:13px}
+.svc h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(40px,5vw,72px);line-height:1;margin:14px 0 16px}
+.svc p{color:var(--muted);font-size:16px;max-width:460px}
+.svc ul{list-style:none;margin-top:26px;display:grid;gap:12px}
+.svc li{display:flex;gap:12px;align-items:baseline;font-weight:600;border-top:1px solid var(--line);padding-top:12px}
+.svc li::before{content:"→";color:var(--accent)}
+.svc .ghost{position:absolute;right:-10px;bottom:-40px;font-family:var(--display);font-size:200px;line-height:1;color:rgba(255,255,255,.03);pointer-events:none}
+
+/* PROCESS */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+.step{border-top:2px solid var(--line);padding-top:22px;transition:border-color .3s}
+.step:hover{border-color:var(--accent)}
+.step b{font-family:var(--display);font-weight:400;font-size:56px;color:var(--accent);line-height:1}
+.step h4{font-size:20px;margin:12px 0 8px}
+.step p{color:var(--muted);font-size:15px}
+
+/* CLIENTS */
+.clients{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.client{padding:40px 24px;text-align:center;border-right:1px solid var(--line);transition:background .3s}
+.client:last-child{border-right:0}
+.client:hover{background:var(--card)}
+.client b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(22px,2.4vw,34px);text-transform:uppercase}
+.client span{font-size:13px;color:var(--muted)}
+
+/* CONTACT */
+.contact{text-align:center;position:relative;overflow:hidden;background:var(--accent);color:#0a0a0a}
+.contact h2{font-size:clamp(56px,13vw,210px)}
+.contact h2 em{color:#0a0a0a;-webkit-text-stroke:0;font-style:italic}
+.contact .lead{color:#2a1208;margin:24px auto 40px;max-width:560px;font-size:19px}
+.contact .btn-dark{background:#0a0a0a;color:var(--fg)}.contact .btn-dark:hover{transform:translateY(-2px);background:#222}
+.contact .btn-line{border:1.5px solid #0a0a0a;color:#0a0a0a}.contact .btn-line:hover{background:#0a0a0a;color:var(--fg)}
+.cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px;border-top:1.5px solid rgba(0,0,0,.25);text-align:left}
+.cgrid a,.cgrid div{padding:24px 20px;border-right:1.5px solid rgba(0,0,0,.25)}
+.cgrid>*:last-child{border-right:0}
+.cgrid small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.cgrid b{font-size:17px}
+.cgrid a:hover b{text-decoration:underline}
+
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:28px var(--pad);font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:300;background:rgba(5,5,5,.94);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:24px}
+.lb.open{display:flex;animation:fade .3s}
+@keyframes fade{from{opacity:0}}
+.lb-in{display:grid;grid-template-columns:auto 340px;gap:32px;align-items:center;max-width:1400px;width:100%;max-height:100%}
+.lb video{max-height:86vh;max-width:100%;border-radius:12px;background:#000;margin:auto}
+.lb-info small{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.lb-info h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:44px;line-height:1;margin:10px 0 16px}
+.lb-info p{color:#cfcac0}
+.lb-info dl{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin-top:22px;font-size:14px;border-top:1px solid var(--line);padding-top:18px}
+.lb-info dt{color:var(--muted)}
+.lb-nav{display:flex;gap:10px;margin-top:26px}
+.lb-nav button,.lb-x{background:var(--card);border:1px solid var(--line);color:var(--fg);width:46px;height:46px;border-radius:50%;cursor:pointer;font-size:18px;transition:.2s}
+.lb-nav button:hover,.lb-x:hover{background:var(--accent);color:#0a0a0a;border-color:var(--accent)}
+.lb-x{position:absolute;top:20px;right:20px}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media (max-width:1000px){
+  .card.v{grid-column:span 4;aspect-ratio:9/16}.card.h,.card.big{grid-column:span 12}.card.wide{aspect-ratio:16/10}.card.big{aspect-ratio:9/12;grid-row:auto}
+  .about{grid-template-columns:1fr}.photo{max-width:480px}
+  .services{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .stats,.clients,.cgrid{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2),.client:nth-child(2){border-right:0}
+  .stat:nth-child(-n+2),.client:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .cgrid>*:nth-child(2){border-right:0}.cgrid>*:nth-child(-n+2){border-bottom:1.5px solid rgba(0,0,0,.25)}
+  .lb-in{grid-template-columns:1fr;overflow:auto;max-height:100%}.lb video{max-height:62vh}.lb-info h3{font-size:32px}
+  .wall{grid-template-columns:repeat(3,1fr)}.wall .col:nth-child(n+4){display:none}
+  .scroll-hint{display:none}
+}
+@media (max-width:720px){
+  .links,nav>.btn{display:none}.burger{display:block}
+  nav.menu .links{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--bg);padding:20px var(--pad);gap:18px;border-bottom:1px solid var(--line);font-size:18px}
+  .steps{grid-template-columns:1fr}
+  h1{font-size:27vw}
+  .card.v{grid-column:span 12;aspect-ratio:4/5}
+  .meta{padding:16px}.meta p{display:none}
+  .grid{gap:10px}
+  .cgrid{grid-template-columns:1fr}.cgrid>*{border-right:0!important;border-bottom:1.5px solid rgba(0,0,0,.25)}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#top" class="logo"><i></i>LUCAS RUENS</a>
+  <div class="links">
+    <a href="#trabalhos">Trabalhos</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#processo">Processo</a>
+    <a href="#contato">Contato</a>
+  </div>
+  <a href="#contato" class="btn btn-accent">Orçamento</a>
+  <button class="burger" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('menu')">☰</button>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wall" id="wall"></div>
+  <div class="scroll-hint">ROLE PARA VER ↓</div>
+  <div class="hero-in">
+    <div class="tag">Filmmaker · Captação & Edição · Niterói / RJ</div>
+    <h1>Lucas<br><span class="out">Ruens</span><span class="acc">.</span></h1>
+    <div class="hero-bottom">
+      <p>Vídeos que <b>prendem nos primeiros segundos</b> e contam histórias de verdade — para marcas, campanhas, eventos e redes sociais. Do roteiro de captação ao corte final.</p>
+      <div class="ctas">
+        <a href="#trabalhos" class="btn btn-accent">▶ Ver trabalhos</a>
+        <a href="#contato" class="btn btn-ghost">Fazer orçamento</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Captação</span><span>Edição</span><span>Campanhas</span><span>Depoimentos</span><span>Comerciais</span><span>Eventos</span><span>Reels & TikTok</span><span>4K</span>
+    <span>Captação</span><span>Edição</span><span>Campanhas</span><span>Depoimentos</span><span>Comerciais</span><span>Eventos</span><span>Reels & TikTok</span><span>4K</span>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat rv"><b>7<sup>+</sup></b><span>Projetos em destaque</span></div>
+  <div class="stat rv"><b>4K</b><span>Captação em ultra HD</span></div>
+  <div class="stat rv"><b>9:16</b><span>+ 16:9 · todo formato</span></div>
+  <div class="stat rv"><b>360°</b><span>Da captação à entrega</span></div>
+</div>
+
+<!-- WORK -->
+<section id="trabalhos">
+  <div class="head">
+    <div>
+      <div class="tag rv">Portfólio selecionado</div>
+      <h2 class="rv">Trabalhos<br><em>recentes</em></h2>
+    </div>
+    <div class="filters rv" id="filters">
+      <button class="on" data-f="all">Todos</button>
+      <button data-f="campanha">Campanha</button>
+      <button data-f="comercial">Comercial</button>
+      <button data-f="evento">Eventos</button>
+      <button data-f="autoral">Autoral</button>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<!-- CLIENTS -->
+<section style="padding-top:0">
+  <div class="tag rv">Quem já confiou</div>
+  <div class="clients rv">
+    <div class="client"><b>Fernanda Neves</b><span>Campanha · Niterói</span></div>
+    <div class="client"><b>Gymbro Club</b><span>Academia</span></div>
+    <div class="client"><b>Boteco do Caranguejo</b><span>Gastronomia</span></div>
+    <div class="client"><b>Pran</b><span>Pedido de casamento</span></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="sobre">
+  <div class="photo rv">
+    <img src="assets/img/sobre.jpg" alt="Lucas Ruens com a câmera em mãos durante uma captação">
+    <div class="stamp">● REC</div>
+  </div>
+  <div>
+    <div class="tag rv">Sobre mim</div>
+    <h2 class="rv">Histórias<br>com <em>verdade</em>.</h2>
+    <p class="rv">Sou <strong>Lucas Ruens</strong>, filmmaker de Niterói. Eu capto e edito vídeos para quem precisa ser visto: candidatos, marcas, restaurantes, academias e casais que querem guardar um momento para sempre.</p>
+    <p class="rv">Meu foco é <strong>gente real</strong>. Depoimentos que emocionam, esquetes que soam naturais, bastidores com cheiro de comida — tudo pensado para o formato certo e com legendas que seguram a atenção até o último segundo.</p>
+    <p class="rv">Trabalho com captação em 4K, áudio limpo e edição feita para cada plataforma: Reels, TikTok, YouTube, telão ou TV.</p>
+    <div class="chips rv">
+      <span>Captação 4K</span><span>Edição dinâmica</span><span>Legendas animadas</span><span>Vertical & horizontal</span><span>Depoimentos</span><span>Entrega rápida</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="servicos">
+  <div class="head">
+    <div>
+      <div class="tag rv">O que eu faço</div>
+      <h2 class="rv">Serviços</h2>
+    </div>
+    <p class="lead rv">Você pode contratar a produção completa ou só a etapa que precisa. Cada projeto recebe o mesmo cuidado.</p>
+  </div>
+  <div class="services">
+    <div class="svc rv">
+      <div class="n">01 —</div>
+      <h3>Captação</h3>
+      <p>Filmagem em 4K com direção de cena: eu conduzo entrevistados, pessoas comuns e atores para que tudo soe natural na câmera.</p>
+      <ul>
+        <li>Depoimentos e entrevistas</li>
+        <li>Esquetes e vídeos de campanha</li>
+        <li>Comerciais para restaurantes, academias e marcas</li>
+        <li>Eventos, pedidos de casamento e celebrações</li>
+        <li>Áudio com microfone de lapela</li>
+      </ul>
+      <div class="ghost">01</div>
+    </div>
+    <div class="svc rv">
+      <div class="n">02 —</div>
+      <h3>Edição</h3>
+      <p>Montagem com ritmo, trilha e legendas pensadas para reter atenção nas redes — ou um corte cinematográfico para emocionar.</p>
+      <ul>
+        <li>Reels, TikTok e Shorts (9:16)</li>
+        <li>Vídeos para YouTube e TV (16:9)</li>
+        <li>Legendas animadas e identidade visual</li>
+        <li>Trilha, sound design e mixagem</li>
+        <li>Tratamento de cor</li>
+      </ul>
+      <div class="ghost">02</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="processo" style="padding-top:0">
+  <div class="head">
+    <div>
+      <div class="tag rv">Como funciona</div>
+      <h2 class="rv">Processo</h2>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="step rv"><b>01</b><h4>Conversa</h4><p>Entendo seu objetivo, público e onde o vídeo vai ser publicado.</p></div>
+    <div class="step rv"><b>02</b><h4>Roteiro & plano</h4><p>Defino cenas, locações e o que precisa ser captado. Você aprova antes.</p></div>
+    <div class="step rv"><b>03</b><h4>Captação</h4><p>Dia de gravação com equipamento 4K, áudio limpo e direção de cena.</p></div>
+    <div class="step rv"><b>04</b><h4>Edição & entrega</h4><p>Corte, legendas e cor. Você revisa e recebe nos formatos de cada rede.</p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contato">
+  <div class="tag rv" style="color:#0a0a0a">Vamos gravar?</div>
+  <h2 class="rv">Seu próximo<br><em>vídeo</em> começa aqui</h2>
+  <p class="lead rv">Me conta sua ideia. Eu respondo rápido com uma proposta pensada para o seu projeto.</p>
+  <div class="ctas rv" style="justify-content:center">
+
+    <a class="btn btn-dark" href="https://wa.me/5521999327950?text=Ol%C3%A1%20Lucas%2C%20vi%20seu%20portf%C3%B3lio%20e%20quero%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener">WhatsApp →</a>
+    <a class="btn btn-line" href="mailto:lucasls12345.lc@gmail.com">Enviar e-mail</a>
+  </div>
+  <div class="cgrid rv">
+    <a href="https://wa.me/5521999327950?text=Ol%C3%A1%20Lucas%2C%20vi%20seu%20portf%C3%B3lio%20e%20quero%20fazer%20um%20or%C3%A7amento!" target="_blank" rel="noopener"><small>WhatsApp</small><b>(21) 99932-7950</b></a>
+    <a href="https://instagram.com/lucasruens" target="_blank" rel="noopener"><small>Instagram</small><b>@lucasruens</b></a>
+    <a href="mailto:lucasls12345.lc@gmail.com"><small>E-mail</small><b>lucasls12345.lc@gmail.com</b></a>
+    <div><small>Base</small><b>Niterói · Rio de Janeiro</b></div>
+  </div>
+</section>
+
+<footer>
+  <span>© <span id="yr"></span> Lucas Ruens — Filmmaker</span>
+  <span>Captação & Edição · Niterói / RJ</span>
+  <a href="#top">Voltar ao topo ↑</a>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <button class="lb-x" id="lbx" aria-label="Fechar">✕</button>
+  <div class="lb-in">
+    <video id="lbv" controls playsinline></video>
+    <div class="lb-info">
+      <small id="lbc"></small>
+      <h3 id="lbt"></h3>
+      <p id="lbd"></p>
+      <dl>
+        <dt>Cliente</dt><dd id="lbcl"></dd>
+        <dt>Função</dt><dd id="lbr"></dd>
+        <dt>Formato</dt><dd id="lbf"></dd>
+        <dt>Duração</dt><dd id="lbdu"></dd>
+      </dl>
+      <div class="lb-nav">
+        <button id="lbp" aria-label="Anterior">←</button>
+        <button id="lbn" aria-label="Próximo">→</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const P = [
+  {id:'fn-biografia', t:'Biografia', cl:'Fernanda Neves', cat:'campanha', label:'Campanha política', fmt:'Vertical 9:16', o:'v', size:'big', dur:'2:47', role:'Captação & edição',
+   d:'Vídeo-biografia para redes sociais: trajetória pessoal, família e projetos, com legendas animadas e a identidade visual da campanha.'},
+  {id:'pran-pedido', t:'O Pedido', cl:'Pran', cat:'evento', label:'Pedido de casamento', fmt:'Horizontal 16:9', o:'h', dur:'0:54', role:'Captação & edição',
+   d:'Um pedido de casamento ao pôr do sol na praia. Corte cinematográfico, legendas bilíngues e emoção do primeiro ao último frame.'},
+  {id:'gymbro-ione', t:'Depoimento Ione', cl:'Gymbro Club', cat:'comercial', label:'Comercial · Depoimento', fmt:'Horizontal', o:'h', dur:'1:09', role:'Captação & edição',
+   d:'Depoimento de aluna para academia: entrevista com luz de marca, cenas de treino e yoga, e assinatura animada no final.'},
+  {id:'boteco-caranguejo', t:'Um dia no Boteco', cl:'Boteco do Caranguejo', cat:'comercial', label:'Gastronomia', fmt:'Vertical 9:16', o:'v', dur:'0:41', role:'Captação & edição',
+   d:'Um dia de casa cheia: pratos, drinks flambados e clientes felizes, em um corte rápido feito para Reels.'},
+  {id:'fn-boteco', t:'Esquete Marido e Mulher', cl:'Fernanda Neves', cat:'campanha', label:'Campanha · Esquete', fmt:'Vertical 9:16', o:'v', dur:'1:18', role:'Captação & edição',
+   d:'Conversa de boteco com moradores reais. Uma esquete natural, com humor e proposta, gravada na rua.'},
+  {id:'minha-cidade-em-arte', t:'Minha Cidade em Arte', cl:'Itaipu, Niterói', cat:'autoral', label:'Autoral · Itaipu', fmt:'Vertical 9:16', o:'v', dur:'0:57', role:'Captação & edição',
+   d:'Transformando Itaipu, em Niterói, em arte: Vila dos Pescadores, praia, pôr do sol e as pessoas que vivem ali.'},
+  {id:'fn-escritorio', t:'Esquete Escritório', cl:'Fernanda Neves', cat:'campanha', label:'Campanha · Esquete', fmt:'Horizontal 16:9', o:'h', size:'wide', dur:'0:59', role:'Captação & edição',
+   d:'Duas colegas de trabalho, uma conversa sincera. Esquete com direção de atores e luz suave de escritório.'},
+];
+
+const grid = document.getElementById('grid');
+P.forEach((p,i)=>{
+  const a = document.createElement('article');
+  a.className = `card ${p.o} ${p.size||''} rv`; a.dataset.cat = p.cat; a.dataset.i = i;
+  a.innerHTML = `<img src="assets/img/${p.id}.jpg" alt="${p.cl} — ${p.t}" loading="lazy">
+    <video muted loop playsinline preload="none" data-src="assets/video/${p.id}-teaser.mp4"></video>
+    <span class="badge">${p.fmt} · ${p.dur}</span>
+    <span class="play"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z" fill="#0a0a0a"/></svg></span>
+    <div class="meta"><small>${p.label}</small><h3>${p.cl} — ${p.t}</h3><p>${p.role}</p></div>`;
+  const v = a.querySelector('video');
+  a.addEventListener('mouseenter',()=>{ if(!v.src) v.src=v.dataset.src; v.play().catch(()=>{}); });
+  a.addEventListener('mouseleave',()=>{ v.pause(); });
+  a.addEventListener('click',()=>openLB(i));
+  grid.appendChild(a);
+});
+
+// hero video wall
+const wall = document.getElementById('wall');
+const vert = P.filter(p=>p.o==='v'), all = P;
+for(let c=0;c<5;c++){
+  const col = document.createElement('div'); col.className='col';
+  const seq = [all[(c)%all.length], all[(c+2)%all.length], all[(c+4)%all.length]];
+  [...seq,...seq].forEach((p,k)=>{
+    if(k<3 && c<4){ const v=document.createElement('video'); v.muted=true; v.loop=true; v.autoplay=true; v.playsInline=true; v.poster=`assets/img/${p.id}.jpg`; v.src=`assets/video/${p.id}-teaser.mp4`; col.appendChild(v); }
+    else { const im=document.createElement('img'); im.src=`assets/img/${p.id}.jpg`; im.alt=''; col.appendChild(im); }
+  });
+  wall.appendChild(col);
+}
+
+// filters
+document.getElementById('filters').addEventListener('click',e=>{
+  const b = e.target.closest('button'); if(!b) return;
+  document.querySelectorAll('#filters button').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.card').forEach(c=>c.classList.toggle('hide', b.dataset.f!=='all' && c.dataset.cat!==b.dataset.f));
+});
+
+// lightbox
+const lb=document.getElementById('lb'), lbv=document.getElementById('lbv'); let cur=0;
+function openLB(i){
+  cur=(i+P.length)%P.length; const p=P[cur];
+  lbv.src=`assets/video/${p.id}.mp4`; lbv.poster=`assets/img/${p.id}.jpg`;
+  lbv.style.aspectRatio = p.o==='v' ? '9/16' : '';
+  document.getElementById('lbc').textContent=p.label;
+  document.getElementById('lbt').textContent=p.t;
+  document.getElementById('lbd').textContent=p.d;
+  document.getElementById('lbcl').textContent=p.cl;
+  document.getElementById('lbr').textContent=p.role;
+  document.getElementById('lbf').textContent=p.fmt;
+  document.getElementById('lbdu').textContent=p.dur;
+  lb.classList.add('open'); document.body.style.overflow='hidden'; lbv.play().catch(()=>{});
+}
+function closeLB(){ lb.classList.remove('open'); lbv.pause(); lbv.removeAttribute('src'); lbv.load(); document.body.style.overflow=''; }
+document.getElementById('lbx').onclick=closeLB;
+document.getElementById('lbp').onclick=()=>openLB(cur-1);
+document.getElementById('lbn').onclick=()=>openLB(cur+1);
+lb.addEventListener('click',e=>{ if(e.target===lb) closeLB(); });
+addEventListener('keydown',e=>{ if(!lb.classList.contains('open')) return;
+  if(e.key==='Escape') closeLB(); if(e.key==='ArrowRight') openLB(cur+1); if(e.key==='ArrowLeft') openLB(cur-1); });
+
+// nav + reveal
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('menu')));
+const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{ el.style.transitionDelay=(i%4)*70+'ms'; io.observe(el); });
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>

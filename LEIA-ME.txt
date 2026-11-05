@@ -1,0 +1,21 @@
+PORTFÓLIO — LUCAS RUENS
+=======================
+
+COMO ABRIR
+- Dê dois cliques em index.html (abre no navegador).
+
+O QUE TROCAR ANTES DE PUBLICAR (abra index.html num editor de texto e procure):
+- Contatos já preenchidos: WhatsApp (21) 99932-7950, @lucasruens, lucasls12345.lc@gmail.com
+- assets/img/sobre.jpg -> troque por uma foto sua (mesmo nome de arquivo)
+
+ADICIONAR UM VÍDEO NOVO
+1. Coloque em assets/video/  o vídeo (ex: meu-video.mp4) e um trecho curto mudo (meu-video-teaser.mp4)
+2. Coloque em assets/img/    uma capa (meu-video.jpg)
+3. No index.html, na lista "const P = [", copie um bloco { ... } e troque id, título, cliente etc.
+
+PUBLICAR NA INTERNET (grátis)
+- Netlify Drop: app.netlify.com/drop  -> arraste a pasta "site" inteira.
+- A pasta tem ~345 MB por causa dos vídeos. Se o serviço reclamar do tamanho,
+  suba os vídeos no YouTube/Vimeo e me peça para trocar o player.
+
+Os vídeos originais em 4K continuam intactos na pasta "para portifolio".
